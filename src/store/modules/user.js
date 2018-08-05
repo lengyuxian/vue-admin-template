@@ -11,6 +11,7 @@ const user = {
     avatar: '',
     introduction: '',
     roles: [],
+    language: 'en',
     setting: {
       articlePlatform: []
     }
@@ -40,6 +41,9 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_LANGUAGE: (state, language) => {
+      state.language = language
     }
   },
 
@@ -114,6 +118,9 @@ const user = {
           resolve()
         })
       })
+    },
+    setLanguage({ commit }, language) {
+      commit('SET_LANGUAGE', language)
     }
   }
 }
