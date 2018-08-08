@@ -38,3 +38,26 @@ npm run lint
 # auto fix
 npm run lint -- --fix
 ```
+## 兼容IE
+    npm install babel-polyfill --save-dev
+    main.js   import 'babel-polyfill'
+     .babelrc  文件下添加
+        "useBuiltIns": "entry"
+        
+      ex: {
+           "presets": [
+           [
+            "env",
+            {
+            "modules": false,
+            "useBuiltIns": "entry"
+            }
+           ],
+           "stage-3"
+           ]
+          }
+    axios的请求在ie下没有用 
+      npm install es6-promise --save-dev
+      main.js 
+          import promise from 'es6-promise'
+           promise.polyfill()
