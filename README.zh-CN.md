@@ -2,8 +2,6 @@
 
 ## 开发
 ```bash
-# 克隆项目
-git clone https://github.com/PanJiaChen
 # 安装依赖
 npm install
    
