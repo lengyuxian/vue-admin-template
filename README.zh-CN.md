@@ -61,3 +61,28 @@ npm run lint -- --fix
       main.js 
           import promise from 'es6-promise'
            promise.polyfill()
+
+
+##css背景图片路径问题
+    1. config index.js 文件  build  要是相对路径
+    
+      assetsPublicPath: './'  
+    2. 在build文件 utils.js 下
+        if (options.extract) {
+              return ExtractTextPlugin.extract({
+                use: loaders,
+                fallback: 'vue-style-loader'
+              })
+            } else {
+              return ['vue-style-loader'].concat(loaders)
+           }
+         添加
+         if (options.extract) {
+               return ExtractTextPlugin.extract({
+                 use: loaders,
+                 fallback: 'vue-style-loader'，
+                 publicPath: '../../'
+               })
+             } else {
+               return ['vue-style-loader'].concat(loaders)
+             }
